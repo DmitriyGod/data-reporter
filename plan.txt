@@ -1,4 +1,4 @@
-1) try to connect https://docs.google.com/spreadsheets/d/1Ycg7zTxds9DZnDvTrFcyNNKuTUxg6Yy6WF0a8Wc02WQ and download sheets
+1) try to connect https://docs.google.com/spreadsheets/d/1Ycg7zTxds9DZnDvTrFcyNNKuTUxg6Yy6WF0a8Wc02WQ and download sheets (yes)
 2) try to post "report" to my table
 3) process data and drop report to console
 4) connect parts to one-key scrpit
