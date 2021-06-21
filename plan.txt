@@ -1,0 +1,7 @@
+1) try to connect https://docs.google.com/spreadsheets/d/1Ycg7zTxds9DZnDvTrFcyNNKuTUxg6Yy6WF0a8Wc02WQ and download sheets
+2) try to post "report" to my table
+3) process data and drop report to console
+4) connect parts to one-key scrpit
+5) add minimal interface and connect-errors handler:
+- data source connect error: say it
+- my sheets connect error: save report to local file
