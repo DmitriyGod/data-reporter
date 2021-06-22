@@ -1,5 +1,5 @@
 1) try to connect https://docs.google.com/spreadsheets/d/1Ycg7zTxds9DZnDvTrFcyNNKuTUxg6Yy6WF0a8Wc02WQ and download sheets (yes)
-2) try to post "report" to my table
+2) try to post "report" to my table (17gc6Nv8zB4mkS4dlAY9KCFIlJpHyOAMTfrtinwURZXw) (yes)
 3) process data and drop report to console
 4) connect parts to one-key scrpit
 5) add minimal interface and connect-errors handler:

@@ -1,12 +1,16 @@
 from __future__ import print_function
 import os.path
+import httplib2
+#import apiclient.discovery
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
+from datetime import datetime
+
 
 # If modifying these scopes, delete the file token.json.
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
+SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
 
 # The ID and range of a sample spreadsheet.
 SAMPLE_SPREADSHEET_ID = '1Ycg7zTxds9DZnDvTrFcyNNKuTUxg6Yy6WF0a8Wc02WQ'
@@ -48,6 +52,22 @@ def main():
         for row in values:
             # Print columns A and E, which correspond to indices 0 and 4.
             print('%s, %s, %s' % (row[0],row[1], row[2]))
+
+    now = datetime.now()
+    spreadsheet = service.spreadsheets().create(body = {
+        'properties': {'title': 'Report ' + now.strftime("%m/%d/%Y, %H:%M"), 'locale': 'ru_RU'},
+        'sheets': [{'properties': {'sheetType': 'GRID',
+                               'sheetId': 0,
+                               'title': 'List1',
+                               'gridProperties': {'rowCount': 8, 'columnCount': 5}}}]
+    }).execute()
+    driveService = build('drive', 'v3', credentials=creds)
+    #apiclient.discovery.build('drive', 'v3', http = httpAuth)
+    shareRes = driveService.permissions().create(
+        fileId = spreadsheet['spreadsheetId'],
+        body = {'type': 'anyone', 'role': 'reader'},  # доступ на чтение кому угодно
+        fields = 'id'
+    ).execute()
 
 if __name__ == '__main__':
     main()
